@@ -31,16 +31,20 @@ public class VideoShop {
 	 */
 	public RentedVideo rental(Video video, Customer customer, int day) {
 
+
 		Video getVideo = wareHouse.get(video);
 
-		if (getVideo != null) {
-			RentedVideo newRented = new RentedVideo(getVideo, customer, day);
-			rentedList.add(newRented);
-			return newRented;
+		if (getVideo == null) {
+			throw new IllegalArgumentException("찾을수 없는 비디오 입니다. " + video.getTitle());
 		}
-		return null;
 
+		if (getVideo.getMaxRentalDay() < day) {
+			throw new IllegalArgumentException(video.getMaxRentalDay() + "일 이상 대여할수 없는 비디오 입니다");
+		}
 
+		RentedVideo newRented = new RentedVideo(getVideo, customer, day);
+		rentedList.add(newRented);
+		return newRented;
 	}
 
 	/**

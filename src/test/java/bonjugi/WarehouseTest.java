@@ -18,9 +18,9 @@ public class WarehouseTest {
 
 	@Before
 	public void FIXTURE_비디오() {
-		video1 = Video.of(Genre.영화, "보헤미안", 100);
-		video2 = Video.of(Genre.스포츠, "국가대표", 200);
-		video3 = Video.of(Genre.다큐멘터리, "남극의눈물", 300);
+		video1 = Video.of(Genre.영화, "보헤미안", 100, 10);
+		video2 = Video.of(Genre.스포츠, "국가대표", 200, 11);
+		video3 = Video.of(Genre.다큐멘터리, "남극의눈물", 300, 12);
 
 	}
 

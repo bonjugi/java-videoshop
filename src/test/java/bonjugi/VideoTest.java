@@ -20,9 +20,9 @@ public class VideoTest {
 
 	@Test
 	public void 종류_제목_대여요금_세가지필드_장르는세가지() {
-		Video genre1 = Video.of(Genre.영화, "보헤미안", 100);
-		Video genre2 = Video.of(Genre.스포츠, "보헤미안", 200);
-		Video genre3 = Video.of(Genre.다큐멘터리, "보헤미안", 200);
+		Video genre1 = Video.of(Genre.영화, "보헤미안", 100, 10);
+		Video genre2 = Video.of(Genre.스포츠, "보헤미안", 200, 11);
+		Video genre3 = Video.of(Genre.다큐멘터리, "보헤미안", 200, 12);
 
 		assertThat(genre1.getGenre()).isEqualTo(Genre.영화);
 		assertThat(genre2.getGenre()).isEqualTo(Genre.스포츠);
@@ -31,12 +31,5 @@ public class VideoTest {
 		// 그럼에도 동치성은 이름으로 한다
 		assertThat(genre1).isEqualTo(genre2);
 	}
-
-
-	@Test
-	public void 취급하는_모든장르() {
-
-	}
-
 
 }

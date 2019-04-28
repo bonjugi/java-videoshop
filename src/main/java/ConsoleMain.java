@@ -8,13 +8,14 @@ public class ConsoleMain {
 
 		Scanner sc = new Scanner(System.in);
 
-		// 비디오 등록
+		// 비디오샵 생성
 		WareHouse warehouse = new WareHouse();
 		VideoShop shop = new VideoShop(warehouse);
 
 
+		// 비디오 등록
 		while (true) {
-			System.out.println("창고에 넣을 비디오 정보들을 입력하시오. (예 : 스포츠 월드컵 10000) // 종료:q");
+			System.out.println("창고에 넣을 비디오 정보들을 입력하시오. (예 : 스포츠 월드컵 10000 10) // 종료:q");
 			String line = sc.nextLine();
 
 			if (isQ(line)) {
@@ -25,7 +26,7 @@ public class ConsoleMain {
 				Video video = createVideo(line);
 				warehouse.adds(video);
 			} catch (Exception e) {
-				System.out.println("잘못입력하셨습니다." + e.getMessage());
+				System.out.println("잘못입력하셨습니다. " + e.getMessage());
 			}
 		}
 		System.out.println("비디오가 입고되었습니다. " + shop.getRentalableList().size() + "개");
@@ -33,7 +34,7 @@ public class ConsoleMain {
 		System.out.println("============================");
 
 
-		// 이름 입력
+		// 고객 이름 입력
 		System.out.println("당신의 이름을 입력하세요.");
 		Customer customer = createCustomer(sc.nextLine());
 
@@ -49,7 +50,7 @@ public class ConsoleMain {
 			try {
 				rentalFromShop(line, shop, customer);
 			} catch (Exception e) {
-				System.out.println("잘못입력하셨습니다." + e.getMessage());
+				System.out.println("잘못입력하셨습니다. " + e.getMessage());
 			}
 		}
 
@@ -109,8 +110,9 @@ public class ConsoleMain {
 		Genre genre = Genre.valueOf(s[0]);
 		String title = s[1];
 		int price = Integer.parseInt(s[2]);
+		int maxRentalDay = Integer.parseInt(s[3]);
 
-		return Video.of(genre, title, price);
+		return Video.of(genre, title, price, maxRentalDay);
 	}
 
 

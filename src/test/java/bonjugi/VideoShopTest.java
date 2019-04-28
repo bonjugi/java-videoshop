@@ -25,9 +25,9 @@ public class VideoShopTest {
 	public void FIXTURE_샵() {
 
 		// 비디오
-		video1 = Video.of(Genre.영화, "보헤미안", 100);
-		video2 = Video.of(Genre.스포츠, "국가대표", 200);
-		video3 = Video.of(Genre.다큐멘터리, "남극의눈물", 300);
+		video1 = Video.of(Genre.영화, "보헤미안", 100, 10);
+		video2 = Video.of(Genre.스포츠, "국가대표", 200, 11);
+		video3 = Video.of(Genre.다큐멘터리, "남극의눈물", 300, 12);
 
 		// 창고
 		house = new WareHouse();
@@ -140,6 +140,17 @@ public class VideoShopTest {
 		// 빌지 출력
 		shop.printBill(bonjugi);
 
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void 최대대여기간_이상은_빌릴수없음() {
+		shop.rental(video1, bonjugi, 11);
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void 없는비디오일때는() {
+		RentedVideo rented1 = shop.rental(Video.of("모르는비디오"), bonjugi, 3);
+		System.out.println(rented1);
 	}
 
 
