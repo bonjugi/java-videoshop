@@ -34,10 +34,6 @@ public class VideoShop {
 
 		Video getVideo = wareHouse.get(video);
 
-		if (getVideo == null) {
-			throw new IllegalArgumentException("찾을수 없는 비디오 입니다. " + video.getTitle());
-		}
-
 		if (getVideo.getMaxRentalDay() < day) {
 			throw new IllegalArgumentException(video.getMaxRentalDay() + "일 이상 대여할수 없는 비디오 입니다");
 		}

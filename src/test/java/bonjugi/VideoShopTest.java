@@ -4,6 +4,7 @@ import bonjugi.model.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.NoSuchElementException;
 import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -116,7 +117,7 @@ public class VideoShopTest {
 		shop.rental(video1, bonjugi, 11);
 	}
 
-	@Test(expected = IllegalArgumentException.class)
+	@Test(expected = NoSuchElementException.class)
 	public void 없는비디오는_빌릴수없음() {
 		shop.rental(Video.of("없는비디오"), bonjugi, 3);
 	}

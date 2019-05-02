@@ -6,6 +6,7 @@ import bonjugi.model.WareHouse;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.NoSuchElementException;
 import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -47,16 +48,15 @@ public class WarehouseTest {
 		assertThat(videoList2).contains(video2, video3);
 	}
 
-	@Test
-	public void 없는비디오_빌리면_null() {
+	@Test(expected = NoSuchElementException.class)
+	public void 없는비디오_꺼내면_예외발생() {
 		WareHouse house = new WareHouse();
 
 		// 비디오 1,2만 넣고
 		house.adds(video1, video2);
 
-
-		// 3번 뺴면 null
-		assertThat(house.get(video3)).isNull();
+		// 3번을 꺼내면 예외발생
+		house.get(video3);
 
 	}
 

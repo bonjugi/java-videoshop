@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.ToString;
 
 import java.util.LinkedHashSet;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -44,14 +45,9 @@ public class WareHouse {
 	 */
 	public Video get(Video video) {
 
-		Optional<Video> first = videos.stream().filter(v -> v.equals(video)).findFirst();
+		Video findVideo = videos.stream().filter(v -> v.equals(video)).findFirst().orElseThrow(NoSuchElementException::new);
+		videos.remove(findVideo);
+		return findVideo;
 
-		if (first.isPresent()) {
-			Video find = first.get();
-			videos.remove(find);
-			return first.get();
-		}
-
-		return null;
 	}
 }
