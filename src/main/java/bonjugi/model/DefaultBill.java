@@ -1,8 +1,11 @@
 package bonjugi.model;
 
+import lombok.ToString;
+
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 
+@ToString
 public class DefaultBill implements Bill {
 
 

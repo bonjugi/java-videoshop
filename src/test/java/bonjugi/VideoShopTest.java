@@ -111,18 +111,6 @@ public class VideoShopTest {
 		assertThat(rentedList).hasSize(0);
 	}
 
-
-	@Test
-	public void 빌지출력() {
-		// 2개 빌리고,
-		RentedVideo rented1 = shop.rental(video1, bonjugi, 3);
-		RentedVideo rented2 = shop.rental(video2, bonjugi, 3);
-
-		// 빌지 출력
-		shop.printBill(bonjugi);
-
-	}
-
 	@Test(expected = IllegalArgumentException.class)
 	public void 최대대여기간_이상은_빌릴수없음() {
 		shop.rental(video1, bonjugi, 11);
