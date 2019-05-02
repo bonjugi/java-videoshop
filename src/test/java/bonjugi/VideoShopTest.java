@@ -18,8 +18,8 @@ public class VideoShopTest {
 	Video video3;
 
 	WareHouse house;
-
 	Customer bonjugi;
+
 
 	@Before
 	public void FIXTURE_샵() {
@@ -40,25 +40,6 @@ public class VideoShopTest {
 		bonjugi = Customer.of("bonjugi");
 	}
 
-
-	@Test
-	public void 빌린비디오_동치성테스트() {
-		RentedVideo rental = new RentedVideo(video1, bonjugi, 10);
-		RentedVideo otherRental = new RentedVideo(video1, bonjugi, 10);
-
-		RentedVideo differentVideo = new RentedVideo(video2, bonjugi, 10);
-		RentedVideo differentDay = new RentedVideo(video1, bonjugi, 20);
-		RentedVideo differentCustomer = new RentedVideo(video1, Customer.of("모르는사람?"), 10);
-
-
-		// 비디오정보와 고객 날짜가 같으면 일치
-		assertThat(rental).isEqualTo(otherRental);
-
-		// 셋중 하나라도 다르면 불일치
-		assertThat(rental).isNotEqualTo(differentVideo);
-		assertThat(rental).isNotEqualTo(differentDay);
-		assertThat(rental).isNotEqualTo(differentCustomer);
-	}
 
 	@Test
 	public void 빌린비디오_가격측정() {
