@@ -19,17 +19,13 @@ public class VideoTest {
 	}
 
 	@Test
-	public void 종류_제목_대여요금_세가지필드_장르는세가지() {
+	public void 장르_제목_대여요금_대여기간_필드검증() {
 		Video genre1 = Video.of(Genre.영화, "보헤미안", 100, 10);
-		Video genre2 = Video.of(Genre.스포츠, "보헤미안", 200, 11);
-		Video genre3 = Video.of(Genre.다큐멘터리, "보헤미안", 200, 12);
 
 		assertThat(genre1.getGenre()).isEqualTo(Genre.영화);
-		assertThat(genre2.getGenre()).isEqualTo(Genre.스포츠);
-		assertThat(genre3.getGenre()).isEqualTo(Genre.다큐멘터리);
-
-		// 그럼에도 동치성은 이름으로 한다
-		assertThat(genre1).isEqualTo(genre2);
+		assertThat(genre1.getTitle()).isEqualTo("보헤미안");
+		assertThat(genre1.getPrice()).isEqualTo(100);
+		assertThat(genre1.getMaxRentalDay()).isEqualTo(10);
 	}
 
 }
