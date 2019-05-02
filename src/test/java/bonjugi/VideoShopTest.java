@@ -117,9 +117,8 @@ public class VideoShopTest {
 	}
 
 	@Test(expected = IllegalArgumentException.class)
-	public void 없는비디오일때는() {
-		RentedVideo rented1 = shop.rental(Video.of("모르는비디오"), bonjugi, 3);
-		System.out.println(rented1);
+	public void 없는비디오는_빌릴수없음() {
+		shop.rental(Video.of("없는비디오"), bonjugi, 3);
 	}
 
 
