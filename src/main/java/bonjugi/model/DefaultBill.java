@@ -26,7 +26,7 @@ public class DefaultBill implements Bill {
 
 		StringBuffer buffer = new StringBuffer();
 
-		buffer.append("================================ DefaultBill ================================ \r\n");
+		buffer.append("================================ Created By DefaultBill ================================ \r\n");
 
 		rentedList.forEach(rented -> {
 
@@ -42,7 +42,7 @@ public class DefaultBill implements Bill {
 		});
 
 
-		buffer.append("============================================================================= \r\n");
+		buffer.append("======================================================================================= \r\n");
 		buffer.append(String.format(totalFormat, totalCount.get(), totalAmount.get()) + "\r\n");
 
 		return buffer.toString();
