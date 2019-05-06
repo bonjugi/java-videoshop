@@ -41,18 +41,6 @@ public class VideoShopTest {
 		bonjugi = Customer.of("bonjugi");
 	}
 
-
-	@Test
-	public void 빌린비디오_가격측정() {
-		RentedVideo rental = new RentedVideo(video1, bonjugi, 10);
-		assertThat(rental.getAmount()).isEqualTo(video1.getPrice() * 10);
-
-		RentedVideo rental2 = new RentedVideo(video2, bonjugi, 20);
-		assertThat(rental2.getAmount()).isEqualTo(video2.getPrice() * 20);
-
-
-	}
-
 	@Test
 	public void 샵에서_빌리기() {
 		RentedVideo rental1 = shop.rental(video1, bonjugi, 3);
